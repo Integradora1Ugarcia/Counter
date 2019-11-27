@@ -28,8 +28,15 @@ public class MainActivity extends AppCompatActivity{
         max.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contador++;
-                incremento.setText(""+contador);
+                if(contador==10){
+                    max.setText("Max");
+                }else if(contador<350){
+                    max.setText("+");
+                    min.setText("-");
+                    contador++;
+                    incremento.setText(""+contador);
+
+                }
             }
         });
 
@@ -37,24 +44,34 @@ public class MainActivity extends AppCompatActivity{
         min.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                contador--;
-                incremento.setText(""+contador);
+                if(contador==0){
+                    min.setText("Min");
+                }else if(contador>0){
+                    min.setText("-");
+                    max.setText("+");
+                    contador--;
+                    incremento.setText(""+contador);
+
+
+                }
             }
         });
 
 
 
-        /**if (contador==10){
+       /** if (contador==0){
+            contador=0;
+            min.setText("Min");
 
+        } else if(contador==10){
+            contador=10;
             max.setText("Max");
 
-        } else if(contador==0){
-           min.setText("Min");
-
-        }else if(contador==1){
-            min.setText("-");
-        }else if(contador==349){
+        }else if(contador<10){
             max.setText("+");
+        }else if(contador>0){
+            min.setText("-");
+
         }**/
 
 
